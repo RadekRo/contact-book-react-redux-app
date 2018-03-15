@@ -6,7 +6,6 @@ class ContactList extends Component {
 
     handleRemoveClick = event => {
         const contactId = event.target.dataset.contactId;
-        console.log ({ contactId });
         this.props.removeContact(contactId);
     };
 
