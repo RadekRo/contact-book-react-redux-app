@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ToggleEditContactButton from './ToggleEditContactButton';
 
 class ContactList extends Component {
@@ -9,7 +10,7 @@ class ContactList extends Component {
     };
 
     render() {
-
+        console.log('propsy ContactList: ', this.props);
         const { contacts } = this.props;
 
         return (
@@ -53,4 +54,4 @@ class ContactList extends Component {
     }
 }
 
-export default ContactList;
+export default connect()(ContactList);
