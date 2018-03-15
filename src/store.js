@@ -28,6 +28,19 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
+
+        case 'ADD_CONTACT':
+            return {
+
+                contacts: state.contacts.concat({
+                    id: Date.now().toString(32),
+                    name: action.contactName,
+                    phone: action.contactPhone,
+                    email: action.contactEmail,
+                    categories: action.contactCategory
+                })
+            };
+
         default:
             return state
     }

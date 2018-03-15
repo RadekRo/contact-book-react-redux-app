@@ -35,7 +35,7 @@ class App extends Component {
 
     removeContact = contactId => {
         this.setState({
-            contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+            contacts: this.props.contacts.filter(contact => contact.id !== contactId)
         })
     };
 
@@ -47,7 +47,7 @@ class App extends Component {
         return (
 
             <React.Fragment>
-                <AddContactForm addContact={ this.addContact } />
+                <AddContactForm />
                 <br/>
                 <ContactList
                     contacts={ contacts }
@@ -59,6 +59,10 @@ class App extends Component {
     }
 }
 
-export default connect(state => ({
+export default connect(
+
+    state => ({
     contacts: state.contacts
-}))(App);
+    })
+
+)(App);
