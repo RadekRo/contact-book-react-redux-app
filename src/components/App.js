@@ -21,12 +21,6 @@ class App extends Component {
         })
     };
 
-    removeContact = contactId => {
-        this.setState({
-            contacts: this.props.contacts.filter(contact => contact.id !== contactId)
-        })
-    };
-
     render() {
         const { contacts } = this.props;
         return (
@@ -36,7 +30,6 @@ class App extends Component {
                 <br/>
                 <ContactList
                     contacts={ contacts }
-                    updateContact={ this.updateContact }
                 />
             </React.Fragment>
         );

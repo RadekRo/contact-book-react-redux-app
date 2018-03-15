@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class EditContactForm extends Component {
 
@@ -10,7 +11,6 @@ class EditContactForm extends Component {
     };
 
     handleChange = ({ target: { name, value } }) => {
-        console.log('dupa');
         this.setState({
             [name]: value
         })
@@ -55,4 +55,18 @@ class EditContactForm extends Component {
     }
 }
 
-export default EditContactForm;
+export default connect(
+
+    state => ({
+        contacts: state.contacts
+    }),
+
+    dispatch => ({
+        updateContact: (updatedContactId, updatedContact) =>
+            dispatch({
+                type: 'UPDATE_CONTACT',
+                updatedContactId,
+                updatedContact
+            })
+    })
+)(EditContactForm);

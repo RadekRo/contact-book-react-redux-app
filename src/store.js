@@ -47,6 +47,20 @@ const reducer = (state = initialState, action = {}) => {
                 contacts: state.contacts.filter(contact => contact.id !== action.removedContactId)
             };
 
+        case 'UPDATE_CONTACT':
+            return {
+                ...state,
+                contacts: state.contacts.map(
+                    contact =>
+                        contact.id !== action.updatedContactId
+                            ? contact
+                            : {
+                                ...contact,
+                                ...action.updatedContact
+                            }
+                )
+            };
+
         default:
             return state
     }
