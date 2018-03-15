@@ -7,20 +7,6 @@ import AddContactForm from "./AddContactForm";
 
 class App extends Component {
 
-    updateContact = (contactId, updatedContact) => {
-        this.setState({
-            contacts: this.state.contacts.map(
-                contact =>
-                    contact.id !== contactId
-                        ? contact
-                        : {
-                                    ...contact,
-                                    ...updatedContact
-                                }
-            )
-        })
-    };
-
     render() {
         const { contacts } = this.props;
         return (
