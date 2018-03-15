@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import '../css/style.css';
 
 import ContactList from './ContactList';
@@ -8,24 +7,15 @@ import AddContactForm from "./AddContactForm";
 class App extends Component {
 
     render() {
-        const { contacts } = this.props;
         return (
 
             <React.Fragment>
                 <AddContactForm />
                 <br/>
-                <ContactList
-                    contacts={ contacts }
-                />
+                <ContactList />
             </React.Fragment>
         );
     }
 }
 
-export default connect(
-
-    state => ({
-    contacts: state.contacts
-    })
-
-)(App);
+export default App;
