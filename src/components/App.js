@@ -21,18 +21,6 @@ class App extends Component {
         })
     };
 
-    addContact = ({ contactName, contactPhone, contactEmail, contactCategory }) => {
-        this.setState({
-            contacts: this.state.contacts.concat({
-                id: Date.now().toString(32),
-                name: contactName,
-                phone: contactPhone,
-                email: contactEmail,
-                categories: contactCategory
-            })
-        })
-    };
-
     removeContact = contactId => {
         this.setState({
             contacts: this.props.contacts.filter(contact => contact.id !== contactId)
@@ -41,9 +29,6 @@ class App extends Component {
 
     render() {
         const { contacts } = this.props;
-        console.log('Propsy App: ', this.props);
-        console.log('this: ', this);
-        console.log(contacts);
         return (
 
             <React.Fragment>
@@ -51,7 +36,6 @@ class App extends Component {
                 <br/>
                 <ContactList
                     contacts={ contacts }
-                    removeContact={ this.removeContact }
                     updateContact={ this.updateContact }
                 />
             </React.Fragment>

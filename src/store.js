@@ -31,7 +31,7 @@ const reducer = (state = initialState, action = {}) => {
 
         case 'ADD_CONTACT':
             return {
-
+                ...state,
                 contacts: state.contacts.concat({
                     id: Date.now().toString(32),
                     name: action.contactName,
@@ -39,6 +39,12 @@ const reducer = (state = initialState, action = {}) => {
                     email: action.contactEmail,
                     categories: action.contactCategory
                 })
+            };
+
+        case 'REMOVE_CONTACT':
+            return {
+                ...state,
+                contacts: state.contacts.filter(contact => contact.id !== action.removedContactId)
             };
 
         default:
@@ -53,6 +59,5 @@ const store = createStore(
 
 store.subscribe(() => {
     console.log('zmiana', store.getState());
-});
-
+    });
 export default store;

@@ -6,11 +6,11 @@ class ContactList extends Component {
 
     handleRemoveClick = event => {
         const contactId = event.target.dataset.contactId;
-        this.props.removeContact(contactId)
+        console.log ({ contactId });
+        this.props.removeContact(contactId);
     };
 
     render() {
-        console.log('propsy ContactList: ', this.props);
         const { contacts } = this.props;
 
         return (
@@ -54,4 +54,17 @@ class ContactList extends Component {
     }
 }
 
-export default connect()(ContactList);
+export default connect(
+
+    state => ({
+        contacts: state.contacts
+    }),
+
+    dispatch => ({
+        removeContact: (removedContactId) =>
+            dispatch({
+                type: 'REMOVE_CONTACT',
+                removedContactId
+            })
+    })
+)(ContactList);

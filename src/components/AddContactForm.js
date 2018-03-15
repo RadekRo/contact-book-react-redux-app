@@ -74,7 +74,7 @@ export default connect(
     }),
 
     dispatch => ({
-        addContact: ({contactName, contactPhone, contactEmail, contactCategory}) =>
+        addContact: ({ contactName, contactPhone, contactEmail, contactCategory }) =>
             dispatch({
                 type: 'ADD_CONTACT',
                 contactName,
