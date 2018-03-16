@@ -16,7 +16,7 @@ class ContactList extends Component {
             <React.Fragment>
                 <strong>Contact List:</strong>
                 <ul>
-                    { contacts.map(contact => {
+                    { contacts.data.map(contact => {
 
                         let contactDisplay = contact.categories.replace(/\s/g,'').split(',');
 
